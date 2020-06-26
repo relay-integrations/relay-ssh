@@ -1,0 +1,12 @@
+apiVersion: integration/v1
+kind: Step
+name: exec
+version: 1
+summary: Execute SSH commands on a remote server
+
+description: |
+  This step executes a series of SSH commands directly on a remote server.
+
+build:
+  apiVersion: build/v1
+  kind: Docker

@@ -1,21 +1,20 @@
 apiVersion: integration/v1
 kind: Integration
-name: template
+name: ssh
 channel: stable
-version: v20200514
-summary: Integration template
+version: v2020625
+summary: SSH
 license: Apache-2.0
-homepage: https://github.com/relay-integrations/template
-source: https://github.com/relay-integrations/template
+homepage: https://github.com/relay-integrations/relay-ssh
+source: https://github.com/relay-integrations/relay-ssh
 
 description: |
-  This is a template for creating a Relay Integration repository.
+  The SSH integration allows you to run arbitrary commands on a remote server
+  over the SSH protocol.
 
 owner:
   name: Puppet, Inc.
   email: relay@puppet.com
   url: https://puppet.com
 
-tags:
-- template
-- relay integration
+tags: []

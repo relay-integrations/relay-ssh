@@ -1,0 +1,11 @@
+apiVersion: container/v1
+kind: StepContainer
+name: ssh-step-exec
+inherit: {from: sdk, name: bash.v1}
+title: Execute SSH commands on a remote server
+description: >
+  This step executes a series of SSH commands directly on a remote server.
+settings:
+  Image: alpine:latest
+  AdditionalCommands:
+  - apk --no-cache add openssh-client
