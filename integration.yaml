@@ -9,12 +9,12 @@ homepage: https://github.com/relay-integrations/relay-ssh
 source: https://github.com/relay-integrations/relay-ssh
 
 description: |
-  The SSH integration allows you to run arbitrary commands on a remote server
-  over the SSH protocol.
+  Secure Shell (SSH) is a cryptographic network protocol for operating network services securely over an unsecured network.
 
 owner:
   name: Puppet, Inc.
   email: relay@puppet.com
   url: https://puppet.com
 
-tags: []
+tags:
+  - utilities
