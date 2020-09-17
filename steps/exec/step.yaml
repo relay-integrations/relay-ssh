@@ -19,21 +19,29 @@ schemas:
     properties:
       connection:
         type: object
+        description: A Relay SSH connection to use
+        x-relay-connection-type: ssh
         required:
         - sshKey
         properties:
           sshKey:
             type: string
+            description: Ascii encoded SSH private key
       username:
         type: string
+        description: Username to use
       port:
         type: number
+        description: Port to use
       knownHosts:
         type: string
+        description: A SSH known_hosts file to use for host key checking
       strictHostKeyChecking:
         type: boolean
+        description: Whether or not to check the host key against known_hosts
       on:
         type: array
+        description: An array of hosts to loop over and perform input commands on
         minItems: 1
         uniqueItems: true
         items:
@@ -46,6 +54,7 @@ schemas:
             format: ipv6
       input:
         type: array
+        description: An array of commands to run on each host specified in \"on\"
         items:
           type: string
         minItems: 1
