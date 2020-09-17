@@ -20,7 +20,7 @@ schemas:
       connection:
         type: object
         description: A Relay SSH connection to use
-        x-relay-connection-type: ssh
+        x-relay-connectionType: ssh
         required:
         - sshKey
         properties:
