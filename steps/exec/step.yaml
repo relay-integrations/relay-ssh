@@ -65,3 +65,23 @@ build:
 
 publish:
   repository: relaysh/exec
+
+examples:
+- summary: Exec SSH command 
+  content:
+    apiVersion: v1 
+    kind: Step
+    name: ssh
+    image: relaysh/ssh-step-exec
+    spec:
+      connection: !Connection {type: ssh, name: my-ssh-connection}
+      username: !Parameter username 
+      port: 22 # defaults to 22
+      knownHosts: |
+        !Parameter known_host
+      # or
+      #strictHostKeyChecking: false
+      on:
+      - !Parameter host_url
+      input:
+      - !Parameter command 
