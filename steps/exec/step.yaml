@@ -1,6 +1,6 @@
 apiVersion: integration/v1
 kind: Step
-name: exec
+name: ssh-step-exec
 version: 1
 summary: Execute SSH commands on a remote server
 
@@ -64,7 +64,7 @@ build:
   kind: Docker
 
 publish:
-  repository: relaysh/exec
+  repository: relaysh/ssh-step-exec
 
 examples:
 - summary: Exec SSH command 
