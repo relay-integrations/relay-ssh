@@ -5,7 +5,7 @@ version: 1
 summary: Execute SSH commands on a remote server
 
 description: |
-  This step executes a series of SSH commands directly on a remote server.
+  Executes a series of SSH commands directly on a remote server.
 
 schemas:
   spec:
