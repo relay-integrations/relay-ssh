@@ -9,55 +9,8 @@ description: |
 
 schemas:
   spec:
-    $schema: http://json-schema.org/draft-07/schema#
-    type: object
-    required:
-    - connection
-    - username
-    - on
-    - input
-    properties:
-      connection:
-        type: object
-        description: A Relay SSH connection to use
-        x-relay-connectionType: ssh
-        required:
-        - sshKey
-        properties:
-          sshKey:
-            type: string
-            description: Ascii encoded SSH private key
-      username:
-        type: string
-        description: Username to use
-      port:
-        type: number
-        description: Port to use
-      knownHosts:
-        type: string
-        description: A SSH known_hosts file to use for host key checking
-      strictHostKeyChecking:
-        type: boolean
-        description: Whether or not to check the host key against known_hosts
-      on:
-        type: array
-        description: An array of hosts to loop over and perform input commands on
-        minItems: 1
-        uniqueItems: true
-        items:
-          anyOf:
-          - type: string
-            format: hostname
-          - type: string
-            format: ipv4
-          - type: string
-            format: ipv6
-      input:
-        type: array
-        description: An array of commands to run on each host specified in \"on\"
-        items:
-          type: string
-        minItems: 1
+    source: file
+    file: spec.schema.json
 
 build:
   apiVersion: build/v1
@@ -67,21 +20,21 @@ publish:
   repository: relaysh/ssh-step-exec
 
 examples:
-- summary: Exec SSH command 
+- summary: Exec SSH command
   content:
-    apiVersion: v1 
+    apiVersion: v1
     kind: Step
     name: ssh
     image: relaysh/ssh-step-exec
     spec:
-      connection: !Connection {type: ssh, name: my-ssh-connection}
-      username: !Parameter username 
+      connection: ${connections.ssh.my-ssh-connection}
+      username: ${parameters.username}
       port: 22 # defaults to 22
       knownHosts: |
-        !Parameter known_host
+        ${secrets.knownHosts}
       # or
       #strictHostKeyChecking: false
       on:
-      - !Parameter host_url
+      - ${parameters.hostname}
       input:
-      - !Parameter command 
+      - ${parameters.command}
